@@ -37,7 +37,15 @@ com o git add )
 mensagem do commit, para facilitar o entendimento do histórico de mudanças)
     git commit --allow-empty-message -m "" - permite criar um commit sem mensagem ( não recomendado, pois dificulta 
 o entendimento do histórico de mudanças) 
-    stage - é a área onde os arquivos são preparados para o próximo commit ( depois do git add )
+    git remote set-url origin git@github.com/NOME_DE_USUARIO/NOME_DO_REPOSITÓRIO_GITHUB.git - faz com que o push seja
+direcionado pra esse exata URL, no exato diretório
+    
+        !PRIMEIRO PUSH DO GIT, DEPOIS DISSO ELE JÁ DECOROU O CAMINHO!
+        git push -u origin main ( ou master no lugar de main, caso o repositório seja master ) - esse comando envia o commit 
+para o endereço digitado no "git remote set-url origin [...]" 
+            !SEGUNDO PUSH EM DIANTE DO GIT!
+            git push - envia o commit para o diretório
+
 
 
  Comandos de desfazer mudanças:
