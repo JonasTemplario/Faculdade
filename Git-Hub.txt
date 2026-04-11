@@ -1,0 +1,56 @@
+ Nomeclaturas:
+    Git - é um sistema de controle de versão distribuído, usado para rastrear mudanças em arquivos e coordenar 
+o trabalho em projetos de desenvolvimento de software. Ele permite que os desenvolvedores colaborem, compartilhem 
+código e mantenham um histórico completo das alterações feitas no projeto ao longo do tempo.
+    Aqrquivo Local - é o arquivo antes do git add ( antes de adicionar para o stage )
+    Stage - é a área onde os arquivos são preparados para o próximo commit, ou seja, os arquivos que foram 
+adicionados para o próximo commit com o comando git add
+    
+
+ Arquivos:
+
+    .gitignore ( arquivo de texto) - arquivo de texto que lista os arquivos ou diretórios 
+that o Git deve ignorar, ou seja, não rastrear ou incluir nos commits. 
+Ele é usado para evitar que arquivos temporários, arquivos de configuração local, 
+arquivos de build ou outros arquivos que não são relevantes para o projeto sejam incluídos no repositório.
+    .git - pasta oculta que contém todos os arquivos e informações do repositório Git, 
+incluindo o histórico de commits, branches, tags e configurações do repositório. 
+Essa pasta
+
+
+ Comandos de histórico e status:
+    git status - mostra o status dos arquivos no repositório ( modificados, não rastreados, etc.)
+    git diff - mostra as diferenças entre os arquivos modificados e a última versão commitada, 
+ou seja, o que foi alterado em um arquivo local desde o último commit ( antes de adicionar para o próximo commit 
+com o git add )
+    git diff --cached - mostra o que foi modificado em um arquivo local desde o último commit,
+( depois de adicionar para o próximo commit com o git add ) ou seja, o que está na área de stage para o próximo commit 
+    stage - é a área onde os arquivos são preparados para o próximo commit ( depois do git add )
+    git log - mostra o histórico de commits
+    git log --oneline - mostra o histórico de commits em uma linha, com o hash do commit e a mensagem do commit
+    git log --graph - mostra o histórico de commits em um formato gráfico, com as ramificações e mesclagens do projeto
+
+ Comandos:
+    git init - monta um repositório vazio
+    git add - adiciona arquivos para o próximo commit
+    git commit -m "mensagem do commit" - registra as mudanças com uma mensagem descritiva ( sempre escrever a 
+mensagem do commit, para facilitar o entendimento do histórico de mudanças)
+    git commit --allow-empty-message -m "" - permite criar um commit sem mensagem ( não recomendado, pois dificulta 
+o entendimento do histórico de mudanças) 
+    stage - é a área onde os arquivos são preparados para o próximo commit ( depois do git add )
+
+
+ Comandos de desfazer mudanças:
+    git restore <arquivo> - desfaz as mudanças em um arquivo específico ( deve estar fora do git add )
+    git restore --staged <arquivo> - remove um arquivo da área de stage ( desfaz o git add ) 
+    git reset --soft HEAD~1 - desfaz o último commit, mantendo as mudanças no stage ( o numero 1 indica 
+quantos commits para trás você quer desfazer, nesse caso, apenas o último commit )
+
+
+
+
+
+ Erros :
+    error: 'exercicios/25-03-2026/' does not have a commit checked out
+    fatal: adding files failed 
+    ( Este erro quer dizer que eu já tenho um .git dentro da pasta que apareceu o erro )

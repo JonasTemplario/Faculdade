@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilizando Navegação Vertical </title>
+    <!--Vamos utilizar um estilo interno.-->
+    <style>
+        ul{
+           
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+            width: 200px;
+        }
+
+        li{
+           /*  padding-left: 20px; */
+           /*  border: 1px solid orangered; */
+            background-color: yellowgreen;
+        }
+        ul li a{
+            padding: 10px 20px;
+            text-decoration: none;
+            /* Se você quiser colocar a borda na âncora(a) */
+            /* Transforme o elemento a em bloco */
+            display: block;
+            border: 1px solid green;
+        }
+
+        li:hover{
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body> 
+        <h1>Criando os itens da Lista</h1>
+        <!--ul significa lista não ordenada, li itens da lista -->
+        <ul>
+            <!-- O termo (a) vem de âncora que segue com o link que ele vai âncorar. -->
+            <li><a href="home.html">Inicial</a></li>
+            <li><a href="entretenimento.html">Entretenimento</a></li>
+            <li><a href="jogos.html">Jogos</a></li>
+            <li><a href="musicas.html">Musicas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+</body>
+</html>

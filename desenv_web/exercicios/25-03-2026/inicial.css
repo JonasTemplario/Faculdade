@@ -1,0 +1,83 @@
+/*
+max-widith = Largura dos elementos
+margin = Distância do elemento entre o outro de forma externa
+padding = Distância entre o meio e as bordas internas
+border-radius = Traz bordas arredondadas
+box-shadows = Sombra nas bordas dos elementos 
+*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    padding-bottom: 260px; /* espaço para #sobre fixo + footer fixo */
+}
+
+header{
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 0;
+    max-width: 1100px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #f5e0b5;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+}
+
+nav ul{
+    justify-content: space-evenly;
+    list-style-type: none;
+    display: flex;
+    gap: 1px;
+}
+
+nav ul li{
+    font-size: 1.2em;
+    text-align: center;
+    height: 500px;
+    width: 200px;    
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: green;
+    border-radius: 22px;
+}
+
+#sobre{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    text-align: center;
+    background-color: #f5e0b5;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.Contato{
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
+    margin: 0 auto;
+}
+

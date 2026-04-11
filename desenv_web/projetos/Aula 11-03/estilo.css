@@ -1,0 +1,58 @@
+/* max-widith = Largura dos elementos */
+/* margin = Distância do elemento entre o outro de forma externa */
+/* padding = Distância do elemento entre o outro de forma externa */
+/* border-radius = Traz bordas arredondadas */
+/* box-shadows = Sombra nas bordas dos elementos */
+
+
+
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite;
+    margin: 0;
+}
+nav{
+    background-color: white0;
+    padding: 10px;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    background-color: burlywood     
+}
+nav ul li{
+    margin: 0 15px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s;
+    padding: 15px;
+}
+nav ul li a:hover{
+    color: yellow;
+}
+main, section, footer{
+    max-width: 1100px; /* Largura dos "blocos" */
+    margin: 10px auto; /* Distância dos "blocos" entre um e outro */
+    padding: 20px; /* Distância entre o meio e as bordas internas */
+    background-color: #fff;
+    border-radius: 8px; /* Traz bordas arredondadas */
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+}
+/* Primeira class chamada "Caixa" */
+/* O ponto . significa a criação da classe*/
+.Caixa{
+    display: flex;
+    background-color:#70e0cb;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.tamIMG{
+    width: 180px;
+}
