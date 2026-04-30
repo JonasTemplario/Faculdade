@@ -13,16 +13,22 @@ body p{
 }
 .Imagem{
     width: 200px;
-}
+}   
 .cidade{
+    text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: blue;
+    margin: 2px auto;
 }
 .estado{
- font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
- color : green;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color : green;
+    margin: 2px auto ;
 }
 .pais{
+    text-align: center;
     color: orangered;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 2px auto;
 }

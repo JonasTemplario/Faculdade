@@ -1,0 +1,80 @@
+header{
+    background-color: antiquewhite;
+}
+nav{
+    background-color: black;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+nav ul li{
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+}
+nav ul li a{
+    font-family: sans-serif;
+    color: antiquewhite;
+    font-weight: bold;
+    text-decoration: none; /* Remove underline dos links */
+    display: inline-block;
+    padding: 0 50px;
+    transition: all 0.3s; /* Adiciona uma transição suave para as mudanças de estilo */
+}
+nav ul li a:hover{
+    color: rgb(252, 242, 228);
+    transform: scale(1.2); /* Aumenta o tamanho do link */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+body{
+    margin:2px auto;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    background-color: antiquewhite;
+    text-align: center;
+    color: black
+}
+.Contato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+section{
+    justify-self: center;
+    text-align: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+#destaques{
+    display: flex;
+    justify-self: center; /* Serve para centralizar o conteúdo dentro do elemento pai (section) */
+    justify-content: space-evenly;
+    gap: 20px;
+
+}
+.Imagem{
+    width: 300px;
+    aspect-ratio: auto;
+    margin: 10px auto; /* Distância dos "blocos" entre um e outro */
+    padding: 20px; /* Distância entre o meio e as bordas internas */
+
+
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.3);
+}
+@media(min-width: 500px){
+    .header {grid-area: 2, span 6;}
+    .produtos {grid-area: 1, span 6;}
+}
+@media(min-width: 768px){
+    .header {grid-area: 1 / span 12;}
+    .produtos {grid-area: 2 / span 12;}
+}
