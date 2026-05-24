@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário</title>
+    <link href="estilos.css" rel="stylesheet" />
+  </head>
+  <body class="forms">
+    <header>
+      <nav>
+        <ul>
+          <a href="index.html">HOME</a>
+          <a>|</a>
+          <a href="coroa.html">ORAÇÃO</a>
+          <a>|</a>
+          <a href="forms.html">EXPERIÊNCIA</a>
+          <a></a>
+        </ul>
+      </nav>
+    </header>
+    <div class="form">
+      <h2>Conte sua experiencia</h2>
+
+      <fieldset>
+        <legend>Nome:</legend>
+        <textarea type="text" name="nome" id="nome"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Experiência</legend>
+        <textarea type="text" name="experiencia" id="experiencia"></textarea>
+      </fieldset>
+
+      <button id="btn-enviar" type="button">Enviar</button>
+    </div>
+    <div id="lista-comentarios">
+      <script>
+        document.getElementById("btn-enviar").addEventListener("click", () => {
+          const nome = document.getElementById("nome").value.trim();
+          const texto = document.getElementById("experiencia").value.trim();
+
+          if (!nome || !texto) return;
+
+          const h = Math.floor(Math.random() * 360);
+
+          const card = document.createElement("div");
+          card.classList.add("comentario");
+          card.innerHTML = `<strong style="color: hsl(${h}, 65%, 40%)">${nome}</strong><p>${texto}</p>`;
+
+          document.getElementById("lista-comentarios").prepend(card);
+
+          document.getElementById("nome").value = "";
+          document.getElementById("experiencia").value = "";
+        });
+      </script>
+    </div>
+
+    <footer>
+      <h1>"Que Deus esteja em vossos corações".</h1>
+    </footer>
+  </body>
+</html>

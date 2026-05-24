@@ -1,0 +1,20 @@
+Desenvolvimento de um site com tema livre.
+
+- obrigatoriamente precisa ter as páginas, 
+
+index.html ==FEITO==
+
+estilos.css ==FEITO==
+
+Serão 
+uma página principal, ====FEITO====
+ma página que deverá conter listas ordenadas e não ordenas, ====FEITO====
+uma página que contenha tabelas, 
+outra com formulários, ====FEITO====
+e uma com grid de imagens.
+
+Totalizando 5 páginas, o site deve ser responsivo utilizando o Média Query.
+
+Todos estes itens foram vistos em sala de aula, trabalhos copiados ou suspeitos serão penalizados ou zerados.
+
+Estou enviando um modelo para parametro dos tipos, com paginas a mais.
