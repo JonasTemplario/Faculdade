@@ -9,6 +9,6 @@ Forms - Nome e experiencia que a pessoa teve com Jesus. ==== FEITO ====
 
 Listas - Colocar uma foto da Coroa das Lágrimas e a ordem da oração. ==== FEITO ====
 
-Grid - Imagens dos Apóstolos e seus nomes embaixo.
+Grid - Imagens dos Apóstolos e seus nomes embaixo. ==== FEITO ====
 
-Tabela - 
+Tabela - 10 Mandamentos ==== FEITO =====

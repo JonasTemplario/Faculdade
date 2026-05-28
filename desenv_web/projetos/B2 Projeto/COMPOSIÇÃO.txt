@@ -9,9 +9,9 @@ estilos.css ==FEITO==
 Serão 
 uma página principal, ====FEITO====
 ma página que deverá conter listas ordenadas e não ordenas, ====FEITO====
-uma página que contenha tabelas, 
+uma página que contenha tabelas, ====FEITO====
 outra com formulários, ====FEITO====
-e uma com grid de imagens.
+e uma com grid de imagens. ====FEITO====
 
 Totalizando 5 páginas, o site deve ser responsivo utilizando o Média Query.
 
