@@ -31,9 +31,7 @@ console.log("tipo", typeof(objeto))
 let num1 = Number/*DECLARA QUE É UMA VÁRIÁVEL DE NÚMERO*/(prompt/*CRIA DIÁLOGO PARA DIGITAÇÃO*/("Informe um número"))
 let num2 = parseInt(prompt("Informe outro número"))
 
-console.group("Operadores")
-
-
+console.group("Operadores") // Cria um grupo para destacar o que há dentro dele
 
 console.log("Soma: ", num1+num2)
 console.log("Subtração: ", num1-num2)
