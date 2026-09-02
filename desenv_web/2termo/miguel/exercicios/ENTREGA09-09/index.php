@@ -82,15 +82,16 @@ echo "Acertou em $tentativas tentativas" . PHP_EOL;
 // Exercício 2.4 — Menu que repete até escolher "Sair": 1.Saudação 2.Data 3.Sair
 $opcao = "";
 do {
-$opcao = readline("1.Saudação\n2.Data\n3.Sair\nEscolha: 
-");
+$opcao = 1; //readline("1.Saudação\n2.Data\n3.Sair\nEscolha: ");
 // Complete com switch
 switch ($opcao) {
 case "1":
-$opcao[];
+echo "Olá.";
+$opcao = 3;
 break;
 case "2":
-_______;
+echo date("d.m.y");
+$opcao = 3;
 break;
 case "3":
 echo "Até logo!" . PHP_EOL;
@@ -98,12 +99,44 @@ break;
 default:
 echo "Opção inválida" . PHP_EOL;
 }
-} while (_______)
+} while ($opcao != 3);
+
+// Exercício 2.5 — Computador escolhe 1-100. Usuário adivinha com dicas. Conte tentativas.
+$segredo = rand(1, 5);
+$chute = 0;
+$tentativas = 0;
+// Complete: enquanto chute !== segredo
+while ($chute !== $segredo) {
+$chute = rand(1, 5); // (int)readline("Chute (1-100): ");
+$tentativas++;
+if ($chute > $segredo) {
+echo "Chute mais alto </br>";
+} elseif ($chute < $segredo) {
+echo "Chute mais baixo </br>";
+}
+}
+echo "Acertou em $tentativas!" . PHP_EOL;
 
 
 // -------- Bloco 3 --------//
-
-
+// Exercício 3.1 — Para cada echo, diga: funciona? imprime o quê? notice/error?
+$a = 1;
+function teste() {
+$b = 2;
+if (true) {
+$c = 3;
+$d = 4; // sem var, vaza do if
+echo $a . PHP_EOL; // ?
+echo $b . PHP_EOL; // ?
+echo $c . PHP_EOL; // ?
+echo $d . PHP_EOL; // ?
+}
+echo $c . PHP_EOL; // ?
+echo $d . PHP_EOL; // ?
+}
+teste();
+echo $d . PHP_EOL; // ?
+Código inicial:
 
 
 
