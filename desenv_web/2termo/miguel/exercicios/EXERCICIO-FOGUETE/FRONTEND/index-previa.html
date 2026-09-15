@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Missão Lua — Painel de Combustível</title>
+<style>
+  :root{
+    --space-deep: #060B18;
+    --space-mid: #0E1930;
+    --panel: #101B33;
+    --line: #23345A;
+    --text: #E7ECF7;
+    --muted: #8FA0C4;
+    --flame: #FF7A45;
+    --flame-dark: #C4471E;
+    --cyan: #52D6C8;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(1px 1px at 10% 20%, #ffffff 100%, transparent),
+      radial-gradient(1px 1px at 80% 10%, #ffffff 100%, transparent),
+      radial-gradient(1px 1px at 60% 80%, #ffffff 100%, transparent),
+      radial-gradient(2px 2px at 30% 60%, #ffffff 100%, transparent),
+      radial-gradient(1px 1px at 90% 70%, #ffffff 100%, transparent),
+      radial-gradient(1px 1px at 45% 35%, #ffffff 100%, transparent),
+      linear-gradient(180deg, var(--space-deep) 0%, var(--space-mid) 100%);
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    color: var(--text);
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+  }
+
+  .missao{
+    width: 100%;
+    max-width: 920px;
+  }
+
+  .cabecalho{
+    text-align: left;
+    margin-bottom: 22px;
+  }
+
+  .cabecalho .etiqueta{
+    color: var(--cyan);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    margin: 0 0 6px;
+  }
+
+  .cabecalho h1{
+    font-family: "Georgia", "Times New Roman", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+    margin: 0 0 10px;
+  }
+
+  .cabecalho p{
+    color: var(--muted);
+    max-width: 60ch;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .distancia{
+    display: inline-flex;
+    gap: 8px;
+    align-items: baseline;
+    margin-top: 14px;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .distancia strong{
+    font-size: 18px;
+    color: var(--text);
+  }
+
+  .distancia span{
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .painel{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .ilustracao{
+    position: relative;
+    background: linear-gradient(180deg, #0A1226 0%, #050810 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 30px 20px 0;
+    border-right: 1px solid var(--line);
+    min-height: 320px;
+  }
+
+  .ilustracao svg{
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+  }
+
+  .chama{
+    transform-origin: center top;
+    animation: tremular 0.6s ease-in-out infinite alternate;
+  }
+
+  @keyframes tremular{
+    from{ transform: scaleY(1) scaleX(1); opacity: 0.95; }
+    to{ transform: scaleY(1.12) scaleX(0.92); opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .chama{ animation: none; }
+  }
+
+  .controles{
+    padding: 34px 32px;
+  }
+
+  .controles h2{
+    font-size: 15px;
+    text-transform: none;
+    color: var(--text);
+    margin: 0 0 4px;
+    font-weight: 600;
+  }
+
+  .controles > p.sub{
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0 0 22px;
+  }
+
+  .campo{
+    margin-bottom: 18px;
+  }
+
+  .campo label{
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+
+  .campo .unidade-wrap{
+    position: relative;
+  }
+
+  .campo input{
+    width: 100%;
+    padding: 12px 54px 12px 14px;
+    background: var(--space-deep);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+
+  .campo input::placeholder{
+    color: #4B5B82;
+  }
+
+  .campo input:focus{
+    border-color: var(--cyan);
+  }
+
+  .campo .unidade{
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 13px;
+    pointer-events: none;
+  }
+
+  .acionar{
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(180deg, var(--flame) 0%, var(--flame-dark) 100%);
+    color: #1A0A05;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.05s ease;
+  }
+
+  .acionar:hover{ filter: brightness(1.08); }
+  .acionar:active{ transform: translateY(1px); }
+
+  .nota{
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+
+  .nota code{
+    background: rgba(255,255,255,0.06);
+    padding: 1px 6px;
+    border-radius: 5px;
+    color: var(--cyan);
+    font-size: 12px;
+  }
+
+  @media (max-width: 680px){
+    .painel{
+      grid-template-columns: 1fr;
+    }
+    .ilustracao{
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+      min-height: 220px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="missao">
+
+    <div class="cabecalho">
+      <p class="etiqueta">Painel de bordo</p>
+      <h1>Monitor de combustível — rumo à Lua</h1>
+      <p>Informe o quanto o tanque carrega e o quanto o motor consome a cada trecho da viagem. O foguete vai simular o percurso e mostrar como o combustível cai a cada etapa.</p>
+      <div class="distancia">
+        <strong>384.400 km</strong>
+        <span>distância total até a Lua</span>
+      </div>
+    </div>
+
+    <div class="painel">
+
+      <div class="ilustracao">
+        <svg viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="325" rx="55" ry="8" fill="#000" opacity="0.35"/>
+          <path d="M100 10 C 140 55, 148 140, 138 220 L 62 220 C 52 140, 60 55, 100 10 Z" fill="#DCE3F0"/>
+          <path d="M100 10 C 122 40, 132 90, 134 140 L 100 140 Z" fill="#B9C4DC"/>
+          <circle cx="100" cy="115" r="17" fill="#4B6FA8"/>
+          <circle cx="100" cy="115" r="11" fill="#8FBFEA"/>
+          <path d="M62 165 L 30 210 L 62 205 Z" fill="#8C4A2E"/>
+          <path d="M138 165 L 170 210 L 138 205 Z" fill="#8C4A2E"/>
+          <path d="M68 220 L 132 220 L 122 250 L 78 250 Z" fill="#B9C4DC"/>
+          <g class="chama">
+            <path d="M80 250 L 120 250 L 112 285 L 100 305 L 88 285 Z" fill="#FFB25E"/>
+            <path d="M88 250 L 112 250 L 106 278 L 100 292 L 94 278 Z" fill="#FF6A3D"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="controles">
+        <h2>Dados de partida</h2>
+        <p class="sub">Preencha e acione o foguete para iniciar a simulação.</p>
+
+        <!--
+          Esta tag <form> é o ponto de conexão com o back-end.
+          - action="processar.php": nome do arquivo PHP que vai receber os dados
+            (crie esse arquivo do lado do servidor com esse nome, ou troque aqui).
+          - method="POST": os dados vão no corpo da requisição (não aparecem na URL).
+          - cada input tem um atributo "name": é essa string que você usa no PHP
+            para pegar o valor, com $_POST['nome_do_campo'].
+        -->
+        <form action="../BACKEND/processar.php" method="POST">
+
+          <div class="campo">
+            <label for="combustivel">Quantidade total de combustível no tanque</label>
+            <div class="unidade-wrap">
+              <input
+                type="number"
+                id="combustivel"
+                name="combustivel"
+                placeholder="Ex: 500000"
+                step="any"
+                min="0"
+                required>
+              <span class="unidade">litros</span>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="consumo">Litros gastos a cada 15.376 km percorridos</label>
+            <div class="unidade-wrap">
+              <input
+                type="number"
+                id="consumo"
+                name="consumo"
+                placeholder="Ex: 12000"
+                step="any"
+                min="0"
+                required>
+              <span class="unidade">litros</span>
+            </div>
+          </div>
+
+          <button type="submit" class="acionar">Acionar o foguete 🚀</button>
+
+          <p class="nota">
+            Ao clicar, o navegador envia os dois valores acima para <code>processar.php</code>
+            via <code>POST</code>. No PHP, recupere-os com
+            <code>$_POST['combustivel']</code> e <code>$_POST['consumo']</code>.
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -5,7 +5,7 @@
 // Exercício 1.1 — Imprima números de 1 a 10, um por linha
 // Complete o loop for
 for ($i = 1; $i <= 10; $i++) {
-echo $i </br>;
+echo $i . PHP_EOL . "</br>";
 }
 
 // Exercício 1.2 — Imprima apenas pares de 1 a 20, depois modifique para ímpares
@@ -74,10 +74,11 @@ $tentativas = 0;
 $senha = "";
 // Complete: do...while
 do {
-$senha = "readline("Digite a senha: ")";
+$senha = readline("Digite a senha: ");
 $tentativas++;
 } while ($senha !== "secreto123");
-echo "Acertou em $tentativas tentativas" . PHP_EOL; // Era apenas para completar, então não testei com tentativas de senhas
+echo "Acertou em $tentativas tentativas" . PHP_EOL;
+
 
 // Exercício 2.4 — Menu que repete até escolher "Sair": 1.Saudação 2.Data 3.Sair
 $opcao = "";
@@ -188,7 +189,7 @@ $debug = true;
 // arquivo: app.php
 // include "config.php";
 // Como acessar $apiKey e $debug aqui?
-_______
+include "config.php";
 echo "API: $apiKey, Debug: " . ($debug ? "on" : 
 "off") . PHP_EOL;
 
@@ -271,3 +272,126 @@ echo "<pre>";
 var_dump(dividirSeguro(10, 2));   // float(5)
 var_dump(dividirSeguro(10, 0));   // null + log
 var_dump(dividirSeguro("a", 2));  // null + log
+
+
+
+
+// -------- Bloco 5 --------//
+
+declare(strict_types=1);
+
+function soma(array $arr): int {
+    $total = 0;
+    for ($i = 0; $i < count($arr); $i++) {
+        $total += $arr[$i];
+    }
+    return $total;
+}
+
+function media(array $arr): float {
+    if (count($arr) == 0) {
+        return 0.0;
+    }
+    return soma($arr) / count($arr);
+}
+
+function minimo(array $arr): int {
+    if (count($arr) == 0) {
+        return 0;
+    }
+    $menor = $arr[0];
+    for ($i = 1; $i < count($arr); $i++) {
+        if ($arr[$i] < $menor) {
+            $menor = $arr[$i];
+        }
+    }
+    return $menor;
+}
+
+function maximo(array $arr): int {
+    if (count($arr) == 0) {
+        return 0;
+    }
+    $maior = $arr[0];
+    for ($i = 1; $i < count($arr); $i++) {
+        if ($arr[$i] > $maior) {
+            $maior = $arr[$i];
+        }
+    }
+    return $maior;
+}
+
+function mediana(array $arr): float {
+    sort($arr);
+    $tam = count($arr);
+    $meio = intdiv($tam, 2);
+
+    if ($tam % 2 == 0) {
+        return ($arr[$meio - 1] + $arr[$meio]) / 2;
+    } else {
+        return (float)$arr[$meio];
+    }
+}
+
+function moda(array $arr): array {
+    $freq = [];
+    for ($i = 0; $i < count($arr); $i++) {
+        $num = $arr[$i];
+        if (isset($freq[$num])) {
+            $freq[$num]++;
+        } else {
+            $freq[$num] = 1;
+        }
+    }
+
+    $maiorFreq = 0;
+    for ($i = 0; $i < count($arr); $i++) {
+        if ($freq[$arr[$i]] > $maiorFreq) {
+            $maiorFreq = $freq[$arr[$i]];
+        }
+    }
+
+    $modas = [];
+    for ($i = 0; $i < count($arr); $i++) {
+        $num = $arr[$i];
+        if ($freq[$num] == $maiorFreq && !in_array($num, $modas)) {
+            $modas[] = $num;
+        }
+    }
+    return $modas;
+}
+
+/*
+function numeros(int $qtd): array {
+    $lista = [];
+    $i = 0;
+    while ($i < $qtd) {
+        $valor = readline("Numero " . ($i + 1) . "/" . $qtd . ": ");
+        if (is_numeric($valor)) {
+            $lista[$i] = (int)$valor;
+            $i++;
+        } else {
+            echo "Digite um numero valido!" . PHP_EOL;
+        }
+    }
+    return $lista;
+}
+*/
+
+function main(): void {
+    echo "CALCULADORA DE ESTATISTICAS" . PHP_EOL;
+
+    $numeros = [7, 8, 5, 8, 10, 3];
+
+    echo PHP_EOL . "RESULTADOS" . PHP_EOL;
+    echo "Numeros: " . implode(", ", $numeros) . PHP_EOL;
+    echo "Soma: " . soma($numeros) . PHP_EOL;
+    echo "Media: " . number_format(media($numeros), 2) . PHP_EOL;
+    echo "Minimo: " . minimo($numeros) . PHP_EOL;
+    echo "Maximo: " . maximo($numeros) . PHP_EOL;
+    echo "Mediana: " . mediana($numeros) . PHP_EOL;
+    echo "Moda: " . implode(", ", moda($numeros)) . PHP_EOL;
+}
+
+main();
+
