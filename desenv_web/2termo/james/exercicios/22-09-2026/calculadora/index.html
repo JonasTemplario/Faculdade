@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador Simples</title>
+</head>
+<link rel="stylesheet" href="calc.css">
+<body>
+
+    <div class="container">
+        <h1>Calculadora | JS</h1>
+        <div class="form-group">
+            <label for="vlr1">Valor1</label>
+            <input type="number" name="vlr1" id="vlr1">
+        </div>
+        <div class="form-group">
+            <label for="vlr2">Valor2</label>
+            <input type="number" name="vlr2" id="vlr2">
+        </div>
+
+    <div class="operacao">
+        <div>
+            <input type="radio" name="operacao" id="somar">  
+            <label for="somar">ADIÇÃO</label>
+        </div>
+
+        <div>
+            <input type="radio" name="operacao" id="subtrair">  
+            <label for="subtrair">SUBTRAIR</label>
+        </div>
+
+        <div>
+            <input type="radio" name="operacao" id="multiplicar">  
+            <label for="multiplicar">MULTIPLICAR</label>
+        </div>
+
+        <div>
+            <input type="radio" name="operacao" id="dividir">  
+            <label for="dividir">DIVIDIR</label>
+        </div>
+    </div>
+    
+
+    <div class="resultado">
+        Resultado: <span id="resultado"></span>
+    </div>
+
+    <button type="button" class="btn">CALCULAR</button>
+    </div>
+
+    <script src="calc.js"></script>
+</body>
+</html>

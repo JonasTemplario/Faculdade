@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: yellow;
+}
+
+.curso{
+    border: 2px solid #fff;
+    width: 20vw;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 10px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.c1{
+    background-color: blue;
+}
+
+.c2{
+    background-color: #090;
+}
+
+.destaque{
+    background-color: #f00;
+}
