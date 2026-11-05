@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+.dflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Corpo da calculadora */
+.calc {
+    flex-direction: column;
+    gap: 12px;
+    background-color: #222;
+    border: 3px solid #bbb;
+    border-radius: 12px;
+    width: 270px;
+    padding: 15px;
+}
+
+/* Título + visor */
+.div_display {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nome {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    white-space: nowrap;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.display {
+    width: 100%;
+    min-height: 55px;
+    background: #8a8;
+    color: #122;
+    text-align: right;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: xx-large;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Grade das teclas: 4 colunas iguais */
+.div_teclas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    width: 100%;
+}
+
+/* Todas as teclas com o mesmo tamanho */
+.tecla,
+.teclaOp,
+.clear {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #aaa;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    color: #fff;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.tecla:hover {
+    background-color: #888;
+    transform: scale(1.08);
+}
+
+.tecla:active,
+.teclaOp:active,
+.clear:active {
+    transform: scale(0.95);
+}
+
+/* Teclas de operação (vermelhas) */
+.teclaOp {
+    background-color: #f44;
+    border-color: #800;
+}
+
+.teclaOp:hover {
+    background-color: #f22;
+    border-color: #600;
+    transform: scale(1.08);
+}
+
+/* Tecla de apagar (⇦) */
+.clear {
+    font-size: 28px;
+}
